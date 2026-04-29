@@ -2,38 +2,66 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Bowling Alley</title>
+<title>Lightning Strikes Bowl</title>
 
 <style>
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #0f172a;
-        color: white;
+        color: #f8fafc;
+        background: linear-gradient(135deg,#0f172a,#1e293b,#334155,#0f172a);
+        overflow-x: hidden;
+    }
+
+    /* ⚡ Lightning flash overlay */
+    #flash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 999;
     }
 
     header {
-        background: #111827;
-        padding: 20px;
         text-align: center;
+        padding: 40px 20px;
+        background: rgba(15, 23, 42, 0.85);
+        border-bottom: 2px solid #fbbf24;
     }
 
     header h1 {
         margin: 0;
-        color: #00ffcc;
+        font-size: 42px;
+        color: #fbbf24;
+    }
+
+    header p {
+        color: #93c5fd;
     }
 
     nav {
         display: flex;
         justify-content: center;
-        gap: 20px;
-        background: #1f2937;
-        padding: 10px;
+        gap: 25px;
+        background: rgba(30, 41, 59, 0.9);
+        padding: 12px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
     }
 
     nav a {
-        color: white;
+        color: #e2e8f0;
         text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: #fbbf24;
     }
 
     section {
@@ -43,14 +71,15 @@
     }
 
     .card {
-        background: #1f2937;
+        background: rgba(15, 23, 42, 0.8);
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 12px;
+        border: 1px solid #334155;
         margin-bottom: 20px;
     }
 
     h2 {
-        color: #00ffcc;
+        color: #93c5fd;
     }
 
     input, textarea {
@@ -58,38 +87,63 @@
         padding: 10px;
         margin: 8px 0;
         border: none;
-        border-radius: 5px;
+        border-radius: 6px;
+        background: #1e293b;
+        color: white;
     }
 
     button {
-        background: #00ffcc;
+        background: #fbbf24;
         border: none;
-        padding: 10px;
+        padding: 12px;
         cursor: pointer;
         width: 100%;
         font-weight: bold;
+        border-radius: 6px;
+        color: #0f172a;
+    }
+
+    button:hover {
+        background: #f59e0b;
     }
 
     footer {
         text-align: center;
         padding: 20px;
-        background: #111827;
+        background: rgba(15, 23, 42, 0.9);
         margin-top: 40px;
+        color: #94a3b8;
+    }
+
+    /* ⚡ subtle lightning streak */
+    .lightning {
+        position: fixed;
+        top: -200px;
+        left: 50%;
+        width: 2px;
+        height: 200px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+        opacity: 0;
+        transform: rotate(10deg);
+        z-index: 998;
     }
 </style>
 </head>
 
 <body>
 
+<div id="flash"></div>
+<div class="lightning" id="bolt"></div>
+
 <header>
-    <h1>Strike Zone Bowling</h1>
-    <p>Fun. Family. Friends. Bowling Done Right.</p>
+    <h1>Lightning Strikes Bowl</h1>
+    <p>Family Fun. Great Food. Perfect Strikes.</p>
 </header>
 
 <nav>
     <a href="#pricing">Pricing</a>
     <a href="#hours">Hours</a>
-    <a href="#events">Monthly Events</a>
+    <a href="#events">Events</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -98,57 +152,81 @@
     <div class="card">
         <p><strong>Lane Rental:</strong> $__ per hour</p>
         <p><strong>Shoe Rental:</strong> $__</p>
-        <p><strong>Specials:</strong> Edit this section anytime</p>
     </div>
 </section>
 
 <section id="hours">
     <h2>Hours</h2>
     <div class="card">
-        <p>Monday - Friday: __ AM - __ PM</p>
-        <p>Saturday: __ AM - __ PM</p>
-        <p>Sunday: __ AM - __ PM</p>
+        <p>Mon-Fri: __</p>
+        <p>Sat: __</p>
+        <p>Sun: __</p>
     </div>
 </section>
 
 <section id="events">
     <h2>Monthly Events</h2>
     <div class="card">
-        <p>🔹 Monday League Nights</p>
-        <p>🔹 Friday Glow Bowling</p>
-        <p>🔹 Monthly Tournament: __</p>
-        <p>(You can update this every month)</p>
+        <p>⚡ League Nights</p>
+        <p>🎳 Family Specials</p>
+        <p>🌩️ Glow Bowling</p>
     </div>
 </section>
 
 <section id="contact">
-    <h2>Schedule / Contact Us</h2>
+    <h2>Schedule a Visit</h2>
 
     <div class="card">
         <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
             <input type="text" name="first_name" placeholder="First Name" required>
-
             <input type="text" name="last_name" placeholder="Last Name" required>
-
             <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
 
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-
-            <textarea name="message" placeholder="What day would you like to schedule?" rows="4"></textarea>
+            <textarea name="message" placeholder="Message" rows="4"></textarea>
 
             <button type="submit">Send Request</button>
         </form>
     </div>
-
-    <p style="font-size: 12px; opacity: 0.7;">
-        (This form sends submissions to your email via Formspree)
-    </p>
 </section>
 
 <footer>
-    <p>© 2026 Strike Zone Bowling</p>
+    <p>© 2026 Lightning Strikes Bowl</p>
 </footer>
+
+<script>
+function lightningFlash() {
+    const flash = document.getElementById("flash");
+    const bolt = document.getElementById("bolt");
+
+    // screen flash (very quick)
+    flash.style.opacity = "0.6";
+
+    setTimeout(() => {
+        flash.style.opacity = "0";
+    }, 120);
+
+    // lightning streak
+    bolt.style.left = Math.random() * window.innerWidth + "px";
+    bolt.style.opacity = "1";
+
+    setTimeout(() => {
+        bolt.style.opacity = "0";
+    }, 200);
+}
+
+// random timing (subtle, not spammy)
+function randomLightning() {
+    const delay = Math.random() * 7000 + 4000; // 4–11 sec
+    setTimeout(() => {
+        lightningFlash();
+        randomLightning();
+    }, delay);
+}
+
+randomLightning();
+</script>
 
 </body>
 </html>
