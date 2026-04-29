@@ -1,10 +1,154 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <Title> My First Website</Title>
-  </head>
-  <body>
-    <h1>Welcome to my site</h1>
-    <p>This is my first Github website.</p>
-  </body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bowling Alley</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+    }
+
+    header {
+        background: #111827;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        color: #00ffcc;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        background: #1f2937;
+        padding: 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    section {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    .card {
+        background: #1f2937;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #00ffcc;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button {
+        background: #00ffcc;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        font-weight: bold;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #111827;
+        margin-top: 40px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Strike Zone Bowling</h1>
+    <p>Fun. Family. Friends. Bowling Done Right.</p>
+</header>
+
+<nav>
+    <a href="#pricing">Pricing</a>
+    <a href="#hours">Hours</a>
+    <a href="#events">Monthly Events</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="pricing">
+    <h2>Pricing</h2>
+    <div class="card">
+        <p><strong>Lane Rental:</strong> $__ per hour</p>
+        <p><strong>Shoe Rental:</strong> $__</p>
+        <p><strong>Specials:</strong> Edit this section anytime</p>
+    </div>
+</section>
+
+<section id="hours">
+    <h2>Hours</h2>
+    <div class="card">
+        <p>Monday - Friday: __ AM - __ PM</p>
+        <p>Saturday: __ AM - __ PM</p>
+        <p>Sunday: __ AM - __ PM</p>
+    </div>
+</section>
+
+<section id="events">
+    <h2>Monthly Events</h2>
+    <div class="card">
+        <p>🔹 Monday League Nights</p>
+        <p>🔹 Friday Glow Bowling</p>
+        <p>🔹 Monthly Tournament: __</p>
+        <p>(You can update this every month)</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Schedule / Contact Us</h2>
+
+    <div class="card">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+            <input type="text" name="first_name" placeholder="First Name" required>
+
+            <input type="text" name="last_name" placeholder="Last Name" required>
+
+            <input type="email" name="email" placeholder="Email" required>
+
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+
+            <textarea name="message" placeholder="What day would you like to schedule?" rows="4"></textarea>
+
+            <button type="submit">Send Request</button>
+        </form>
+    </div>
+
+    <p style="font-size: 12px; opacity: 0.7;">
+        (This form sends submissions to your email via Formspree)
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Strike Zone Bowling</p>
+</footer>
+
+</body>
 </html>
